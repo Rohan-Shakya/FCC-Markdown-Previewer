@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  background: #c0d8d8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
+.editorBox,
+.previewBox {
+  border: 1px solid black;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow-wrap: break-word;
+}
+.toolbar {
+  background: #4aa3a3;
+  padding: 10px;
+  border: 1px solid black;
+  position: relative;
+  border: 1px solid #1d2f2f;
+  box-shadow: 1px 1px 10px 2px #3a5f5f;
+  font-family: Russo One;
+  font-size: 1.2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.toolbar i {
+  width: 25px;
+  color: black;
+  margin: 0 5px;
+}
+.editorBox textarea {
+  background: transparent;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  margin-bottom: -5px;
+  resize: vertical;
+  outline: none;
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#preview {
+  padding: 0 1rem;
+}
+#preview blockquote {
+  border-left: 3px solid #224b4b;
+  color: #224b4b;
+  padding-left: 5px;
+  margin-left: 25px;
+}
+#preview code {
+  background: white;
+  padding: 1px 4px 2px 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+#preview pre {
+  background: white;
+  padding: 5px 0 5px 5px;
+}
+#preview h1 {
+  border-bottom: 2px solid #224b4b;
+}
+#preview h2 {
+  border-bottom: 1px solid #224b4b;
+}
+#preview table {
+  border-collapse: collapse;
+}
+#preview td,
+#preview th {
+  border: 2px solid #224b4b;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  .editorBox,
+  .previewBox {
+    max-height: 50vh;
+  }
+  textarea {
+    max-height: 50vh;
   }
 }
